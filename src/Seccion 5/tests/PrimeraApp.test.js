@@ -1,6 +1,6 @@
 import PrimeraApp from '../../Seccion 4 - CounterApp/PrimeraApp.js';
 import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
+// import '@testing-library/jest-dom/extend-expect';
 import { shallow } from 'enzyme';
 
 describe('Pruebas en <PrimeraApp />', () => {
