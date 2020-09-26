@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodoContext } from './TodoContext';
 
-export const TodoItem = ({ todo, handleDelete, handleToggle }) => {
+export const TodoItem = ({ todo }) => {
+  const { handleDelete, handleToggle } = useContext(TodoContext);
+
   return (
     <li className="todo-item list-group-item d-flex justify-content-between align-items-center">
       <p onClick={() => handleDelete(todo.id)}>{todo.desc}</p>

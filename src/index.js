@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { TodoApp } from './Sección 9/components/08-useReducer/TodoApp';
+import { HooksApp } from './Sección 9, 10, 11/HooksApp';
 
-ReactDOM.render(<TodoApp />, document.getElementById('root'));
+ReactDOM.render(<HooksApp />, document.getElementById('root'));

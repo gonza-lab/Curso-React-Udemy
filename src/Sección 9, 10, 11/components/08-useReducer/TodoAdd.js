@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodoContext } from './TodoContext';
 
-export const TodoAdd = ({ handleAdd, handleIChange, value }) => {
+export const TodoAdd = () => {
+  const { handleAdd, handleIChange, value } = useContext(TodoContext);
+
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
       <input

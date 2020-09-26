@@ -4,6 +4,8 @@ import { TodoList } from './TodoList';
 import { useForm } from '../../hooks/useForm';
 import { todoReducer } from './todoReducer';
 
+import { TodoContext } from './TodoContext';
+
 import './TodoApp.css';
 
 const init = () => {
@@ -51,7 +53,6 @@ export const TodoApp = () => {
   };
 
   const propsApp = {
-    todos,
     handleAdd,
     handleIChange,
     handleDelete,
@@ -63,7 +64,9 @@ export const TodoApp = () => {
     <div>
       <h1>TodoApp</h1>
       <hr />
-      <TodoList {...propsApp} />
+      <TodoContext.Provider value={propsApp}>
+        <TodoList todos={todos} />
+      </TodoContext.Provider>
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Padre } from './components/07-tarea-memo/Padre';
+import { TodoApp } from './components/08-useReducer/TodoApp';
 
 
 export const HooksApp = () => {
 
   return (
     <>
-      <Padre />
+      <TodoApp />
     </>
   );
 };
