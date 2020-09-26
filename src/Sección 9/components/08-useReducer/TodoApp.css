@@ -1,0 +1,16 @@
+.list-group-item > input {
+  width: 50%;
+}
+
+.todo-item {
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.todo-item:hover {
+  background-color: rgba(10, 10, 10, 0.1);
+}
+
+.todo-item > p{
+  margin: 0;
+}
