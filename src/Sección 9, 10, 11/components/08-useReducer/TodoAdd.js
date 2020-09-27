@@ -1,21 +1,58 @@
-import React, { useContext } from 'react';
-import { TodoContext } from './TodoContext';
+import React from 'react'
+import { useForm } from '../../hooks/useForm';
 
-export const TodoAdd = () => {
-  const { handleAdd, handleIChange, value } = useContext(TodoContext);
+export const TodoAdd = ({ handleAddTodo }) => {
 
-  return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
-      <input
-        className="form-control"
-        type="text"
-        name="desc"
-        value={value.desc}
-        onChange={handleIChange}
-      />
-      <button className="btn btn-primary" onClick={handleAdd}>
-        Añadir todo
-      </button>
-    </li>
-  );
-};
+    const [ { description }, handleInputChange, reset ] = useForm({
+        description: ''
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if ( description.trim().length <= 1 ) {
+            return;
+        }
+
+        const newTodo = {
+            id: new Date().getTime(),
+            desc: description,
+            done: false
+        };
+        
+        handleAddTodo( newTodo );
+        reset();
+        
+    }
+
+
+    return (
+        <>
+            <h4>Agregar TODO</h4>
+            <hr />
+
+            <form onSubmit={ handleSubmit }>
+
+                <input 
+                    type="text"
+                    name="description"
+                    className="form-control"
+                    placeholder="Aprender ..."
+                    autoComplete="off"
+                    value={ description }
+                    onChange={ handleInputChange }
+                />
+
+                <button
+                    type="submit"
+                    className="btn btn-outline-primary mt-1 btn-block"
+                >
+                    Agregar
+                </button>
+
+
+            </form>
+            
+        </>
+    )
+}
